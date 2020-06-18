@@ -18,7 +18,6 @@ class ProductController extends Controller
         $products = Product::all();
 
         return view('products.index', compact('products'));
-        //
     }
 
     /**
@@ -45,10 +44,10 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->description = $request->input('description');
         $product->price = $request->input('price');
+        $product->category_id = $request->input('category_id');
         $product->save();
 
         return redirect()->route('products.show', ['id' => $product->id]);
-        //
     }
 
     /**
